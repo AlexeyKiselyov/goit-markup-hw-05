@@ -417,8 +417,10 @@ address {
   fill: inherit;
 }
 
-.regular-list-item:hover .regular-list-icon {
+.regular-list-item:hover,
+.regular-list-item:focus {
   fill: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 /*-----------FOOTER----------*/
@@ -562,6 +564,37 @@ address a {
     0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 /* ---------- Work examples ----------- */
+
+/* -----Animation examples-list-------- */
+.examples-card-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.examples-item-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateY(100%);
+
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: var(--primary-white-color);
+  background: rgba(33, 150, 243, 0.9);
+  transition: transform 400ms;
+}
+
+.examples-list-item:hover .examples-item-overlay {
+  transform: translateY(0);
+}
+
+/* ----------examples-list------------ */
 .examples-list {
   display: flex;
   flex-basis: 370px;
