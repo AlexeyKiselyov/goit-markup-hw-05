@@ -143,12 +143,15 @@ address {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
+  position: relative;
 
   color: var(--title-text-color);
   text-decoration: none;
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: 0.02em;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-list .link:hover,
@@ -169,12 +172,15 @@ address {
 .icon-envelope,
 .icon-smartphone {
   margin-right: 10px;
+
+  position: relative;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.auth-nav .item:nth-child(1):hover .icon-envelope,
+/* .auth-nav .item:nth-child(1):hover .icon-envelope,
 .auth-nav .item:nth-child(2):hover .icon-smartphone {
   fill: var(--accent-color);
-}
+} */
 
 .auth-nav {
   display: flex;
@@ -189,6 +195,7 @@ address {
 
 .auth-nav .link {
   display: block;
+  position: relative;
   padding-top: 32px;
   padding-bottom: 32px;
 
@@ -197,11 +204,33 @@ address {
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: 0.02em;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.auth-nav .link:hover,
-.auth-nav .link:focus {
+.auth-nav .item:hover,
+.auth-nav .item:focus {
+  fill: var(--accent-color);
+}
+
+.auth-nav .item:hover .link,
+.auth-nav .item:focus .link {
   color: var(--accent-color);
+}
+
+/* ------Header hover :before */
+.link.current::after {
+  content: '';
+
+  position: absolute;
+  bottom: -1px;
+  /* left: 0; */
+
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
 }
 
 /* ----------MAIN----------- */
@@ -244,6 +273,7 @@ address {
   min-width: 200px;
   min-height: 50px;
   padding: 10px 32px;
+  position: relative;
 
   color: var(--primary-white-color);
   background-color: var(--accent-color);
@@ -257,6 +287,7 @@ address {
   border-radius: 4px;
   border: 2px solid transparent;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero .button:hover,
@@ -322,6 +353,29 @@ address {
   gap: 30px;
 }
 
+.activity-list-item {
+  position: relative;
+}
+
+.activity-list-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 70px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  color: var(--primary-white-color);
+  background: rgba(47, 48, 58, 0.8);
+}
+
 /* -----------Team------------ */
 .team {
   background-color: var(--bg-color-white-grey);
@@ -334,12 +388,16 @@ address {
 }
 
 .team-icons-item {
+  position: relative;
   width: 44px;
   height: 44px;
   padding: 12px;
 
   fill: #afb1b8;
   border-radius: 50%;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   /* outline: 1px solid #212121; */
 }
 
@@ -404,6 +462,7 @@ address {
 }
 
 .regular-list-item {
+  position: relative;
   width: 170px;
   height: 92px;
   padding: 16px 32px;
@@ -411,6 +470,8 @@ address {
   fill: #afb1b8;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .regular-list-icon {
@@ -482,6 +543,8 @@ address a {
   color: var(--footer-auth-nav-color);
   text-decoration: none;
   line-height: 1.7;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .auth-nav-footer .link:hover,
@@ -509,6 +572,7 @@ address a {
 }
 
 .footer-icons-item {
+  position: relative;
   width: 44px;
   height: 44px;
   padding: 12px;
@@ -516,6 +580,7 @@ address a {
   fill: var(--primary-white-color);
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   /* outline: 1px solid #212121; */
 }
 
@@ -537,6 +602,7 @@ address a {
 }
 
 .filter-list .button {
+  position: relative;
   padding: 6px 22px;
 
   background-color: var(--bg-color-white-grey);
@@ -549,6 +615,8 @@ address a {
   border-radius: 4px;
   border-color: transparent;
   cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filter-list .button:hover,
 .filter-list .button:focus {
@@ -631,6 +699,83 @@ address a {
 .examples-list-item:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+/**
+  |============================
+  | Modal window
+  |============================
+*/
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.3);
+
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+
+  transition: opacity 400ms ease-in, visibility 400ms ease-in;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  /* transform: translate(-50%, -50%) scale(1) rotate(0); */
+  /* opacity: 1; */
+
+  width: 400px;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 10px;
+
+  /* transition: transform 400ms, opacity 400ms; */
+
+  /* animation: zoom-in 600ms ease 300ms alternate both;
+  animation-play-state: running; */
+}
+
+/* .backdrop.is-hidden .modal {
+  animation-play-state: paused;
+  transform: translate(-50%, -50%) scale(0.4) rotate(360deg);
+  opacity: 0;
+} */
+
+/* @keyframes zoom-in {
+  0% {
+    transform: translate(-50%, -50%) scale(0.3);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+} */
+
+.modal-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
 }
 /* шрифты портфолио*/
 /* основной шрифт Roboto 400,500,700,*/
